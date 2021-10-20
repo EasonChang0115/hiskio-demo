@@ -1,7 +1,12 @@
 <template>
-  <Tutorial/>
+  <hiskio-header></hiskio-header>
 </template>
 
 <script>
-export default {}
+import HiskioHeader from '@/layouts/HiskioHeader.vue';
+export default {
+  components: {
+    HiskioHeader,
+  },
+};
 </script>
