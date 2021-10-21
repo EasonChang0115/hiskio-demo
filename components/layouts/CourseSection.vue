@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import CourseSwiper from '@/components/CourseSection/CourseSwiper.vue';
-import HotTags from '@/components/CourseSection/HotTags.vue';
+import CourseSwiper from '@/components/course-section/CourseSwiper.vue';
+import HotTags from '@/components/course-section/HotTags.vue';
 export default {
   components: {
     CourseSwiper,
