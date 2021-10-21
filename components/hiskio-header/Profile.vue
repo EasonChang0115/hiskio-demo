@@ -11,14 +11,17 @@
           >我想開課
         </nuxt-link>
       </li>
-      <li class="relative hidden text-gray-700 header-btn min-lg:block">
+      <li v-if="username" class="relative hidden text-gray-700 header-btn min-lg:block">
         <span class=""></span>
-        <nuxt-link to="/account/missions" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] textBtn hover:text-green-3"
-          ><span class=""></span>
+        <nuxt-link to="/account/missions" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] textBtn hover:text-green-3">
+          <span class=""></span>
           任務板
         </nuxt-link>
       </li>
-      <li class="hidden text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] header-btn min-lg:block textBtn hover:text-green-3">
+      <li
+        v-if="username"
+        class="hidden text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] header-btn min-lg:block textBtn hover:text-green-3"
+      >
         <nuxt-link to="/account/courses?tab=continue" class="">我的學習</nuxt-link>
       </li>
     </ul>

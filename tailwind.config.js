@@ -44,6 +44,7 @@ module.exports = {
     extend: {
       inset: {
         '5%': '5%',
+        '-60%': '-60%',
       },
       borderColor: {
         gray: {
@@ -60,16 +61,26 @@ module.exports = {
         '40px': '40px',
         '90%': '90%',
       },
+      minWidth: {
+        70: '70px',
+      },
       zIndex: {
+        3: 3,
         11: 11,
       },
       height: {
         '40px': '40px',
       },
+      boxShadow: {
+        'lg-plus': '0 5px 20px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);',
+      },
       screens: {
+        md: { max: '768px' },
         'max-sm': { max: '415px' },
         'min-lg': { min: '1024px' },
         'sn-500': { max: '500px' },
+        'sn-640': { max: '640px' },
+        'sn-1100': { max: '1100px' },
       },
     },
   },

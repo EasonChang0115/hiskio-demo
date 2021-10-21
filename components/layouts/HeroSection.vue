@@ -1,19 +1,21 @@
 <template>
-  <client-only>
-    <swiper class="swiper" :options="swiperOption">
-      <swiper-slide v-for="(item, ind) in images" :key="'indexImg' + ind">
-        <a :href="item.link">
-          <div
-            class="w-full bg-top bg-no-repeat bg-cover home-bg h-[640px]"
-            :style="{
-              backgroundImage: `url(${item.imgUrl})`,
-            }"
-            style="background-size: cover; background-position: center center; background-repeat: no-repeat"
-          ></div>
-        </a>
-      </swiper-slide>
-    </swiper>
-  </client-only>
+  <section>
+    <client-only>
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide v-for="(item, ind) in images" :key="'indexImg' + ind">
+          <a :href="item.link">
+            <div
+              class="w-full bg-top bg-no-repeat bg-cover home-bg h-[640px]"
+              :style="{
+                backgroundImage: `url(${item.imgUrl})`,
+              }"
+              style="background-size: cover; background-position: center center; background-repeat: no-repeat"
+            ></div>
+          </a>
+        </swiper-slide>
+      </swiper>
+    </client-only>
+  </section>
 </template>
 
 <script>
