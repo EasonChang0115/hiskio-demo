@@ -20,7 +20,10 @@ export default {
   css: [{ src: '@/scss/index.scss', lang: 'scss' }],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/axios', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/axios', mode: 'client' },
+    { src: '~/plugins/swiper.js', mode: 'client' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
