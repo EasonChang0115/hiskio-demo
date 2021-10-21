@@ -1,4 +1,10 @@
 export default {
+  methods: {
+    openSignInOut(type) {
+      this.$store.commit('signInOutStore/handleChangeSignState', { type });
+      this.$store.commit('signInOutStore/handleChangeIsOpenSignInOut', { value: true });
+    },
+  },
   computed: {
     isShowSearch: {
       get() {

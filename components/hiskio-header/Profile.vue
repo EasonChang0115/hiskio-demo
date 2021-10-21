@@ -14,7 +14,7 @@
     </ul>
     <ul v-show="!isShowSearch" class="items-center justify-end h-full min-lg:flex flex">
       <li class="flex-shrink-0 min-lg:mr-0">
-        <button class="relative block text-lg leading-none w-[40px] h-[40px] text-green-1">
+        <button class="relative block text-lg leading-none w-40px h-40px text-green-1">
           <span class="absolute top-[10px] right-[10px] rounded-full w-[6px] h-[6px] bg-red-5 z-2"></span>
           <svg
             aria-hidden="true"
@@ -35,7 +35,7 @@
         </button>
       </li>
       <li class="flex-shrink-0 min-lg:hidden" :class="isOpenHam ? 'hidden' : ''">
-        <button class="w-[40px] h-[40px]" @click="isOpenHam = true">
+        <button class="w-40px h-40px" @click="isOpenHam = true">
           <img
             src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxkZWZzPgogICAgICAgIDxzdHlsZT4KICAgICAgICAgICAgLnByZWZpeF9fY2xzLTJ7ZmlsbDojOGM4YzhjfQogICAgICAgIDwvc3R5bGU+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0icHJlZml4X19pY29uLW1lbnUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NjUgLTUwNTIpIj4KICAgICAgICA8cGF0aCBpZD0icHJlZml4X19SZWN0YW5nbGVfMTQxNSIgZmlsbD0ibm9uZSIgZD0iTTAgMEgxOFYxOEgweiIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMTQxNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDY1IDUwNTIpIi8+CiAgICAgICAgPGcgaWQ9InByZWZpeF9fR3JvdXBfMjQ1IiBkYXRhLW5hbWU9Ikdyb3VwIDI0NSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNCAxKSI+CiAgICAgICAgICAgIDxyZWN0IGlkPSJwcmVmaXhfX1JlY3RhbmdsZV8xNDEyIiB3aWR0aD0iMTYiIGhlaWdodD0iMiIgY2xhc3M9InByZWZpeF9fY2xzLTIiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDE0MTIiIHJ4PSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NjMgNTA1MykiLz4KICAgICAgICAgICAgPHJlY3QgaWQ9InByZWZpeF9fUmVjdGFuZ2xlXzE0MTMiIHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBjbGFzcz0icHJlZml4X19jbHMtMiIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMTQxMyIgcng9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MyA1MDU5KSIvPgogICAgICAgICAgICA8cmVjdCBpZD0icHJlZml4X19SZWN0YW5nbGVfMTQxNCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjIiIGNsYXNzPSJwcmVmaXhfX2Nscy0yIiBkYXRhLW5hbWU9IlJlY3RhbmdsZSAxNDE0IiByeD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDYzIDUwNjUpIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
             width="18px"
@@ -46,12 +46,7 @@
         </button>
       </li>
     </ul>
-    <button
-      v-show="!isShowSearch"
-      class="text-xl leading-none text-gray-700 w-[40px] h-[40px] min-lg:hidden"
-      :class="isOpenHam ? '' : 'hidden'"
-      @click="closeAll"
-    >
+    <button v-show="!isShowSearch" class="text-xl leading-none text-gray-700 w-40px h-40px min-lg:hidden" :class="isOpenHam ? '' : 'hidden'" @click="closeAll">
       <svg
         aria-hidden="true"
         focusable="false"
@@ -69,7 +64,7 @@
         ></path>
       </svg>
     </button>
-    <button class="text-xl leading-none text-gray-700 w-[40px] h-[40px] min-lg:hidden" :class="isShowSearch ? '' : 'hidden'" @click="isShowSearch = false">
+    <button class="text-xl leading-none text-gray-700 w-40px h-40px min-lg:hidden" :class="isShowSearch ? '' : 'hidden'" @click="isShowSearch = false">
       <svg
         aria-hidden="true"
         focusable="false"
@@ -88,10 +83,15 @@
       </svg>
     </button>
     <div class="items-center justify-end hidden h-full min-lg:flex">
-      <button class="flex items-center justify-center w-16 h-8 text-sm border-solid border-[1px] rounded-[4px] mx-[8px] text-green-3 border-green-3">
+      <button
+        class="flex items-center justify-center w-16 h-8 text-sm border-solid border-[1px] rounded-[4px] mx-[8px] text-green-3 border-green-3"
+        @click="openSignInOut('login-in')"
+      >
         登入
       </button>
-      <button class="flex items-center justify-center w-16 h-8 text-sm text-white mx-[8px] rounded-[4px] bg-green-3">註冊</button>
+      <button class="flex items-center justify-center w-16 h-8 text-sm text-white mx-[8px] rounded-[4px] bg-green-3" @click="openSignInOut('sign-in')">
+        註冊
+      </button>
     </div>
   </div>
 </template>

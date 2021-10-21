@@ -20,8 +20,18 @@
       </ul>
       <div>
         <div>
-          <button class="block w-full leading-none text-left text-blueGray-4 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box">登入</button>
-          <button class="block w-full font-medium leading-none text-left text-green-1 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box">註冊</button>
+          <button
+            class="block w-full leading-none text-left text-blueGray-4 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box"
+            @click="openSignInOut('login-in')"
+          >
+            登入
+          </button>
+          <button
+            class="block w-full font-medium leading-none text-left text-green-1 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box"
+            @click="openSignInOut('sign-in')"
+          >
+            註冊
+          </button>
         </div>
       </div>
     </div>

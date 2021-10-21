@@ -11,7 +11,7 @@
       <course-mobile></course-mobile>
     </div>
     <Search />
-    <button class="self-center flex-shrink-0 w-[40px] h-[40px] min-lg:hidden" :class="isShowSearch ? 'hidden' : ''" @click="isShowSearch = true">
+    <button class="self-center flex-shrink-0 w-40px h-40px min-lg:hidden" :class="isShowSearch ? 'hidden' : ''" @click="isShowSearch = true">
       <svg
         aria-hidden="true"
         focusable="false"

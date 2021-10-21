@@ -17,20 +17,22 @@ module.exports = {
         100: '#f3f4f6',
         200: '#e5e7eb',
         300: '#d1d5db',
-        400: '#9ca3af',
-        500: '#6b7280',
-        600: '#4b5563',
+        400: '#d9d9d9',
+        500: '#bfbfbf',
+        600: '#8c8c8c',
         700: '#595959',
         800: '#1f2937',
         900: '#111827',
       },
       red: {
+        4: '#e25252',
         5: '#eb6767',
         ...colors.red,
       },
       yellow: colors.amber,
       green: {
         1: '#178fac',
+        2: '#288FAC',
         3: '#308eac',
         ...colors.emerald,
       },
@@ -40,6 +42,9 @@ module.exports = {
       pink: colors.pink,
     },
     extend: {
+      inset: {
+        '5%': '5%',
+      },
       borderColor: {
         gray: {
           400: '#d9d9d9',
@@ -51,7 +56,14 @@ module.exports = {
       textColor: {
         'hi-price': '#454545',
       },
+      width: {
+        '40px': '40px',
+      },
+      height: {
+        '40px': '40px',
+      },
       screens: {
+        'max-sm': { max: '415px' },
         'min-lg': { min: '1024px' },
         'sn-500': { max: '500px' },
       },
