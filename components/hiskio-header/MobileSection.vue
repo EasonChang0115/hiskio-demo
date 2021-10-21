@@ -78,7 +78,12 @@
           </button>
         </div>
         <div v-else>
-          <button class="block w-full leading-none text-left text-blueGray-4 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box">登出</button>
+          <button
+            class="block w-full leading-none text-left text-blueGray-4 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box"
+            @click="$store.dispatch('userStore/logout')"
+          >
+            登出
+          </button>
         </div>
       </div>
     </div>

@@ -98,13 +98,14 @@ export default {
     };
   },
   methods: {
-    handleLogin() {
-      this.$store.dispatch('userStore/login', {
+    async handleLogin() {
+      await this.$store.dispatch('userStore/login', {
         data: {
           account: this.account,
           password: this.password,
         },
       });
+      this.$store.commit('signInOutStore/handleChangeIsOpenSignInOut', { value: false });
     },
   },
 };

@@ -44,6 +44,11 @@ const store = {
         console.log(error);
       }
     },
+    logout({ state, commit, dispatch }) {
+      this.$cookies.remove('accessToken');
+      this.$cookies.remove('tokenType');
+      commit('setUserData', { username: '', avatar: '' });
+    },
     async me({ state, commit, dispatch }, { Authorization }) {
       return await this.$axios({
         method: member.me.method,

@@ -12,7 +12,7 @@ const store = {
           const res = await dispatch('userStore/me', { Authorization: `${capitalize(this.$cookies.get('tokenType'))} ${this.$cookies.get('accessToken')}` });
           commit('userStore/setUserData', { ...res.data });
         } catch (e) {
-          commit('userStore/setUserData', { username: '', avatar: '' });
+          commit('userStore/logout');
         }
       }
     },
