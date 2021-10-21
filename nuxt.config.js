@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'hiskio-demo',
+    title: '最專業的線上程式語言課程 | 工程師首選教學平台 | HiSKIO 嗨 程式技能',
     htmlAttrs: {
       lang: 'en',
     },

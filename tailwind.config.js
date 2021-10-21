@@ -7,7 +7,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
+      blueGray: {
+        4: '#434343',
+      },
       black: colors.black,
       white: colors.white,
       gray: {
@@ -22,9 +24,16 @@ module.exports = {
         800: '#1f2937',
         900: '#111827',
       },
-      red: colors.red,
+      red: {
+        5: '#eb6767',
+        ...colors.red,
+      },
       yellow: colors.amber,
-      green: colors.emerald,
+      green: {
+        1: '#178fac',
+        3: '#308eac',
+        ...colors.emerald,
+      },
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
@@ -35,6 +44,12 @@ module.exports = {
         gray: {
           400: '#d9d9d9',
         },
+      },
+      backgroundColor: {
+        'hi-white': '#fafafa',
+      },
+      textColor: {
+        'hi-price': '#454545',
       },
       screens: {
         'min-lg': { min: '1024px' },
