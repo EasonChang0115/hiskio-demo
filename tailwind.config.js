@@ -52,14 +52,18 @@ module.exports = {
         },
       },
       backgroundColor: {
+        'red-1': '#e34a4a',
         'hi-white': '#fafafa',
       },
       textColor: {
+        'red-1': '#e34a4a',
+        'yellow-3': '#ffa81d',
         'hi-price': '#454545',
       },
       width: {
         '40px': '40px',
         '90%': '90%',
+        '95%': '95%',
       },
       minWidth: {
         70: '70px',
@@ -73,14 +77,18 @@ module.exports = {
       },
       boxShadow: {
         'lg-plus': '0 5px 20px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);',
+        tab: '0px 5px 15px rgba(0,0,0,0.05);',
       },
       screens: {
         md: { max: '768px' },
+        'mq-1380': { max: '1380px' },
         'max-sm': { max: '415px' },
+        'min-md': { min: '768px' },
         'min-lg': { min: '1024px' },
         'sn-500': { max: '500px' },
         'sn-640': { max: '640px' },
         'sn-1100': { max: '1100px' },
+        'sn-1000': { max: '1000px' },
       },
     },
   },

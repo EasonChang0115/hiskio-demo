@@ -101,9 +101,22 @@
     --tw-bg-opacity: 1;
     background-color: rgba(240, 240, 240, var(--tw-bg-opacity));
   }
+  .shadow-package-card {
+    --tw-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent), var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow);
+  }
   .fa-lg {
     font-size: 1.333333em;
     line-height: 0.75em;
+  }
+  .line-clamp-1,
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+  .line-clamp-2 {
+    -webkit-line-clamp: 2;
   }
 }
 
