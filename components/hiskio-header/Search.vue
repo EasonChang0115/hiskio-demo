@@ -8,7 +8,7 @@
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      class="text-gray-700 cursor-pointer mr-[5px] min-lg:mr-0 min-lg:text-gray-600 svg-inline--fa fa-search fa-w-16"
+      class="text-gray-700 cursor-pointer mr-[5px] min-lg:mr-0 min-lg:text-gray-600 svg-inline--fa fa-search w-[1em]"
     >
       <path
         fill="currentColor"

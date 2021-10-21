@@ -14,7 +14,7 @@
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
-          class="absolute cursor-pointer text-hi-price left-[12px] top-6 z-11 svg-inline--fa fa-chevron-left fa-w-10"
+          class="absolute cursor-pointer text-hi-price left-[12px] top-6 z-11 svg-inline--fa fa-chevron-left w-[0.625em]"
           @click="isOpenMobileCourse = false"
         >
           <path

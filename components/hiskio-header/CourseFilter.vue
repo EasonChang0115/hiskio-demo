@@ -30,7 +30,7 @@
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 320 512"
-              class="absolute transform -translate-y-1/2 top-1/2 right-[10px] mr-[6px] min-lg:mr-[6px] svg-inline--fa fa-chevron-right fa-w-10"
+              class="absolute transform -translate-y-1/2 top-1/2 right-[10px] mr-[6px] min-lg:mr-[6px] svg-inline--fa fa-chevron-right w-[0.625em]"
             >
               <path
                 fill="currentColor"

@@ -1,8 +1,8 @@
 const store = {
   state() {
     return {
-      signState: 'sign-in',
-      isopenSignInOut: true,
+      signState: 'login-in',
+      isopenSignInOut: false,
     };
   },
   getters: {},

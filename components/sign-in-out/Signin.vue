@@ -10,7 +10,7 @@
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
-          class="text-hi-buy-btn-red mr-[3px] svg-inline--fa fa-exclamation-circle fa-w-16 fa-sm"
+          class="text-hi-buy-btn-red mr-[3px] svg-inline--fa fa-exclamation-circle w-[1em] text-sm"
         >
           <path
             fill="currentColor"
@@ -42,7 +42,7 @@
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            class="svg-inline--fa fa-check fa-w-16 fa-xs"
+            class="svg-inline--fa fa-check w-[1em] text-xs"
           >
             <path
               fill="currentColor"
