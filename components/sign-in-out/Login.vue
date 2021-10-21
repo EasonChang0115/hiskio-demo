@@ -99,6 +99,7 @@ export default {
   },
   methods: {
     async handleLogin() {
+      this.$nuxt.$loading.start();
       await this.$store.dispatch('userStore/login', {
         data: {
           account: this.account,
@@ -106,6 +107,8 @@ export default {
         },
       });
       this.$store.commit('signInOutStore/handleChangeIsOpenSignInOut', { value: false });
+      this.$nuxt.$loading.finish();
+      this.$router.push('/');
     },
   },
 };

@@ -78,10 +78,7 @@
           </button>
         </div>
         <div v-else>
-          <button
-            class="block w-full leading-none text-left text-blueGray-4 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box"
-            @click="$store.dispatch('userStore/logout')"
-          >
+          <button class="block w-full leading-none text-left text-blueGray-4 pt-[18px] pb-[15px] px-[14px] focus:bg-hi-courses-box" @click="handleLogout">
             登出
           </button>
         </div>
@@ -94,5 +91,17 @@
 import headerMixin from './headerMixin';
 export default {
   mixins: [headerMixin],
+  methods: {
+    async handleLogout() {
+      this.$nuxt.$loading.start();
+      try {
+        await this.$store.dispatch('userStore/logout');
+        this.$nuxt.$loading.finish();
+        this.$router.push('/');
+      } catch (error) {
+        this.$nuxt.$loading.finish();
+      }
+    },
+  },
 };
 </script>

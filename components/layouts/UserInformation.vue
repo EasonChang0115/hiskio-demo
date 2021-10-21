@@ -76,12 +76,7 @@
       </li>
       <!---->
     </ul>
-    <a
-      href="javascript:void(0)"
-      class="flex items-center justify-center w-full text-lg text-gray-600 pb-[40px] pt-[10px]"
-      @click="$store.dispatch('userStore/logout')"
-      >會員登出</a
-    >
+    <a href="javascript:void(0)" class="flex items-center justify-center w-full text-lg text-gray-600 pb-[40px] pt-[10px]" @click="handleLogout">會員登出</a>
   </aside>
 </template>
 
@@ -95,6 +90,18 @@ export default {
       set(value) {
         this.$store.commit('headerStore/handleChangeIsOpenProfile', { value });
       },
+    },
+  },
+  methods: {
+    async handleLogout() {
+      this.$nuxt.$loading.start();
+      try {
+        await this.$store.dispatch('userStore/logout');
+        this.$nuxt.$loading.finish();
+        this.$router.push('/');
+      } catch (error) {
+        this.$nuxt.$loading.finish();
+      }
     },
   },
 };

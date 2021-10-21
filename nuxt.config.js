@@ -13,6 +13,8 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  // Loading page component
+  loading: '~/components/Loading.vue',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [{ src: '@/scss/index.scss', lang: 'scss' }],
