@@ -19,7 +19,7 @@
           "
           style="background-size: cover"
           :style="{
-            backgroundImage: `url(${'https://thumbnails.f5ezcode.in/eyJidWNrZXQiOiJjZG4uaGlza2lvLmNvbSIsImtleSI6ImNvdXJzZXNcL3RmeW5qamx3ZWNhc2FpeCIsImVkaXRzIjp7InBuZyI6eyJxdWFsaXR5IjoxMDB9LCJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJ3aWR0aCI6MzAwfX19'})`,
+            backgroundImage: `url(${course.image})`,
           }"
         >
           <div
@@ -73,7 +73,7 @@
               min-lg:mb-[4.94px] min-lg:min-h-[58px] min-lg:text-xl min-lg:leading-[29px] min-lg:text-hi-price
             "
           >
-            用 Elastic 與 TensorFlow 打造新聞推薦網站｜完全掌握資料儲存 x 搜尋 x 匯聚 x 呈現 x 預測
+            {{ course.title }}
           </h3>
           <div class="hidden justify-between items-center flex-wrap mb-[7.5px] min-lg:flex min-lg:mb-[10px] min-lg:w-full min-lg:order-2">
             <p class="hidden text-sm leading-[19px] text-gray-700 min-lg:block min-lg:mb-[6px]">剩 8 天</p>
@@ -91,15 +91,17 @@
               class="flex-shrink-0 hidden bg-center rounded-full mr-[5px] w-[23px] h-[23px] min-lg:block min-lg:mr-[10px] min-lg:w-[37px] min-lg:h-[37px]"
               style="background-size: cover"
               :style="{
-                backgroundImage: `url(${'https://thumbnails.f5ezcode.in/eyJidWNrZXQiOiJjZG4uaGlza2lvLmNvbSIsImtleSI6ImltYWdlc1wvYXZhdGFyXC9vc2diNjVleWxmemhiMDUiLCJlZGl0cyI6eyJwbmciOnsicXVhbGl0eSI6ODB9fX0='})`,
+                backgroundImage: `url(${course.lecturers[0].avatar})`,
               }"
             ></div>
-            <p class="text-xs leading-[14px] text-gray-600 min-lg:text-base min-lg:leading-[27.64px]">JerryWu</p>
-            <p class="font-bold leading-none min-lg:hidden text-red-1">$1,990</p>
+            <p class="text-xs leading-[14px] text-gray-600 min-lg:text-base min-lg:leading-[27.64px]">{{ course.lecturers[0].username }}</p>
+            <p class="font-bold leading-none min-lg:hidden text-red-1">{{ `$${nowPrice.price}` }}</p>
           </div>
           <div class="items-center hidden min-lg:flex min-lg:items-end min-lg:order-3">
-            <span class="mr-[5px] text-sm leading-[17px] text-blueGray-4 font-bold min-lg:mr-1 min-lg:text-[22px] min-lg:leading-[24px]">$1,990</span>
-            <del class="text-sm leading-[17px] text-gray-500 min-lg:leading-[18px]">$2,890</del>
+            <span class="mr-[5px] text-sm leading-[17px] text-blueGray-4 font-bold min-lg:mr-1 min-lg:text-[22px] min-lg:leading-[24px]">{{
+              `$${nowPrice.price}`
+            }}</span>
+            <del class="text-sm leading-[17px] text-gray-500 min-lg:leading-[18px]">{{ `$${course.fixed_price}` }}</del>
           </div>
         </div>
       </div>
@@ -118,7 +120,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    course: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  computed: {
+    nowPrice() {
+      return this.course.prices.find((price) => price.fundraising);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

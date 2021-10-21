@@ -1,3 +1,5 @@
+import { fundraising } from '@/api.js';
+
 const store = {
   state() {
     return {
@@ -86,11 +88,28 @@ const store = {
           list: [],
         },
       ],
+      fundraisingCourse: [],
     };
   },
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+    setFundraisingCourse(state, { data }) {
+      state.fundraisingCourse = data;
+    },
+  },
+  actions: {
+    async getFundraisingCourse({ commit }) {
+      try {
+        const res = await this.$axios({
+          method: fundraising.getFundraising.method,
+          url: fundraising.getFundraising.url,
+        });
+        commit('setFundraisingCourse', { data: res });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 
 export default store;

@@ -7,8 +7,7 @@
           <nuxt-link to="/groups/all?status=PRESALE" class="text-gray-600 sn-500:pr-[8px] sn-500:text-[14px]">更多募資課程</nuxt-link>
         </div>
         <ul class="grid grid-cols-1 gap-4 min-md:grid-cols-2 min-lg:grid-cols-4">
-          <course-card></course-card>
-          <course-card></course-card>
+          <course-card v-for="course in fundraisingCourse" :key="course.id" :course="course"></course-card>
         </ul>
       </div>
     </div>
@@ -20,6 +19,15 @@ import CourseCard from './CourseCard.vue';
 export default {
   components: {
     CourseCard,
+  },
+  computed: {
+    fundraisingCourse() {
+      console.log(this.$store.state.coursesStore.fundraisingCourse);
+      return this.$store.state.coursesStore.fundraisingCourse;
+    },
+  },
+  async mounted() {
+    await this.$store.dispatch('coursesStore/getFundraisingCourse');
   },
 };
 </script>
