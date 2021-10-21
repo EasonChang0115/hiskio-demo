@@ -93,6 +93,14 @@
     background-color: rgba(23, 143, 172, var(--tw-bg-opacity));
     color: rgba(255, 255, 255, var(--tw-text-opacity));
   }
+  .border-hi-share-icon-gray {
+    --tw-border-opacity: 1;
+    border-color: rgba(226, 226, 226, var(--tw-border-opacity));
+  }
+  .fa-lg {
+    font-size: 1.333333em;
+    line-height: 0.75em;
+  }
 }
 
 @variants hover {

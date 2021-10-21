@@ -4,10 +4,14 @@ const store = {
       isShowSearch: false,
       isOpenHam: false,
       isOpenMobileCourse: false,
+      isOpenProfile: false,
     };
   },
   getters: {},
   mutations: {
+    handleChangeIsOpenProfile(state, { value }) {
+      state.isOpenProfile = value;
+    },
     handleChangeIsShowSearch(state, { value }) {
       state.isShowSearch = value;
     },

@@ -18,10 +18,25 @@ export default {
   css: [{ src: '@/scss/index.scss', lang: 'scss' }],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '~/plugins/axios', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
+
+  axios: {
+    proxy: true,
+    credentials: true,
+  },
+
+  proxy: {
+    '/api': {
+      target: 'https://api.hiskio.com/v2',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': '',
+      },
+    },
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -32,7 +47,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['cookie-universal-nuxt', '@nuxtjs/axios', '@nuxtjs/proxy'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

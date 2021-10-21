@@ -11,6 +11,16 @@
           >我想開課
         </nuxt-link>
       </li>
+      <li class="relative hidden text-gray-700 header-btn min-lg:block">
+        <span class=""></span>
+        <nuxt-link to="/account/missions" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] textBtn hover:text-green-3"
+          ><span class=""></span>
+          任務板
+        </nuxt-link>
+      </li>
+      <li class="hidden text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] header-btn min-lg:block textBtn hover:text-green-3">
+        <nuxt-link to="/account/courses?tab=continue" class="">我的學習</nuxt-link>
+      </li>
     </ul>
     <ul v-show="!isShowSearch" class="items-center justify-end h-full min-lg:flex flex">
       <li class="flex-shrink-0 min-lg:mr-0">
@@ -33,6 +43,9 @@
             ></path>
           </svg>
         </button>
+      </li>
+      <li v-if="username" class="hidden min-lg:block" @click="isOpenProfile = true">
+        <div class="rounded-full cursor-pointer w-[32px] h-[32px]" :style="$store.getters['userStore/avatarStyle']"></div>
       </li>
       <li class="flex-shrink-0 min-lg:hidden" :class="isOpenHam ? 'hidden' : ''">
         <button class="w-40px h-40px" @click="isOpenHam = true">
@@ -82,7 +95,7 @@
         ></path>
       </svg>
     </button>
-    <div class="items-center justify-end hidden h-full min-lg:flex">
+    <div v-if="!username" class="items-center justify-end hidden h-full min-lg:flex">
       <button
         class="flex items-center justify-center w-16 h-8 text-sm border-solid border-[1px] rounded-[4px] mx-[8px] text-green-3 border-green-3"
         @click="openSignInOut('login-in')"
@@ -100,6 +113,11 @@
 import headerMixin from './headerMixin';
 export default {
   mixins: [headerMixin],
+  computed: {
+    username() {
+      return this.$store.state.userStore.username;
+    },
+  },
   methods: {
     closeAll() {
       this.isOpenHam = false;

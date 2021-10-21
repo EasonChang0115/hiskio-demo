@@ -6,6 +6,14 @@ export default {
     },
   },
   computed: {
+    isOpenProfile: {
+      get() {
+        return this.$store.state.headerStore.isOpenProfile;
+      },
+      set(value) {
+        this.$store.commit('headerStore/handleChangeIsOpenProfile', { value });
+      },
+    },
     isShowSearch: {
       get() {
         return this.$store.state.headerStore.isShowSearch;

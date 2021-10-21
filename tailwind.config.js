@@ -58,6 +58,10 @@ module.exports = {
       },
       width: {
         '40px': '40px',
+        '90%': '90%',
+      },
+      zIndex: {
+        11: 11,
       },
       height: {
         '40px': '40px',

@@ -5,7 +5,7 @@
       alt="courses-icon"
       class="cursor-pointer mr-1"
     />
-    <p class="text-gray-700 cursor-pointer">課程</p>
+    <p class="text-gray-700 cursor-pointer">{{ username ? '探索' : '課程' }}</p>
     <div class="absolute bottom-0 left-0 hidden transform translate-y-full pt-[4px] rounded-[6px] shadow">
       <div class="relative h-[420px] flex items-stretch bg-white rounded-[8px] overflow-hidden">
         <ul class="w-[210px] overflow-auto border-solid border-r-[1px] border-gray-400 py-[6px] text-gray-700">
@@ -77,6 +77,9 @@ export default {
     };
   },
   computed: {
+    username() {
+      return this.$store.state.userStore.username;
+    },
     courses() {
       return this.$store.state.coursesStore.courses;
     },

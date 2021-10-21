@@ -16,7 +16,7 @@
       <div class="mx-auto overflow-hidden w-[320px]">
         <ul>
           <li class="relative">
-            <input type="email" placeholder="請輸入 HiSKIO ID" class="input-text" />
+            <input v-model="account" type="email" placeholder="請輸入 HiSKIO ID" class="input-text" />
             <svg
               aria-hidden="true"
               focusable="false"
@@ -35,7 +35,7 @@
           </li>
           <p class="text-xs text-red-4"></p>
           <li class="relative mt-[8px]">
-            <input type="password" placeholder="請輸入登入密碼" class="input-text" />
+            <input v-model="password" type="password" placeholder="請輸入登入密碼" class="input-text" />
             <svg
               aria-hidden="true"
               focusable="false"
@@ -81,7 +81,7 @@
           </p>
         </div>
       </div>
-      <button class="mx-auto default-solid-btn w-[320px] mt-[28px] py-[9px]">登入</button>
+      <button class="mx-auto default-solid-btn w-[320px] mt-[28px] py-[9px]" @click="handleLogin">登入</button>
       <button class="flex justify-center mx-auto text-center text-gray-600 mt-[20px]">忘記密碼</button>
     </div>
   </div>
@@ -93,7 +93,19 @@ export default {
   data() {
     return {
       loginMethods,
+      account: 's8710606@yahoo.com.tw',
+      password: 'zltntq610856',
     };
+  },
+  methods: {
+    handleLogin() {
+      this.$store.dispatch('userStore/login', {
+        data: {
+          account: this.account,
+          password: this.password,
+        },
+      });
+    },
   },
 };
 </script>
