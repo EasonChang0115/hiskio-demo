@@ -1,5 +1,6 @@
+import { action } from '@storybook/addon-actions';
 import CartItemCard from './CartItemCard.vue';
-const course = {
+const courseData = {
   id: '584',
   name: '用 Elastic 與 TensorFlow 打造新聞推薦網站｜完全掌握資料儲存 x 搜尋 x 匯聚 x 呈現 x 預測',
   image:
@@ -84,17 +85,21 @@ const course = {
 export default {
   title: 'CartItemCard',
   component: CartItemCard,
+  excludeStories: /.*Data$/,
+};
+export const actionsData = {
+  ondeleteClick: action('ondeleteClick'),
 };
 
-const taskTemplate = `<CartItemCard :course="course" @archiveTask="onArchiveTask" />`;
+const taskTemplate = `<cart-item-card :course="course" @deleteClick="ondeleteClick"></cart-item-card>`;
 
 export const Default = () => ({
-  components: CartItemCard,
+  components: { CartItemCard },
   template: taskTemplate,
   props: {
     course: {
-      default: () => course,
+      default: () => courseData,
     },
   },
-  methods: delete,
+  methods: actionsData,
 });
