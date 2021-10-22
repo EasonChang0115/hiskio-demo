@@ -93,13 +93,13 @@
               :lazy-background="course.lecturers[0].avatar"
             ></div>
             <p class="text-xs leading-[14px] text-gray-600 min-lg:text-base min-lg:leading-[27.64px]">{{ course.lecturers[0].username }}</p>
-            <p class="font-bold leading-none min-lg:hidden text-red-1">{{ `$${course.price}` }}</p>
+            <p class="font-bold leading-none min-lg:hidden text-red-1">{{ `$${course.price}` | separator }}</p>
           </div>
           <div class="items-center hidden min-lg:flex min-lg:items-end min-lg:order-3">
-            <span class="mr-[5px] text-sm leading-[17px] text-blueGray-4 font-bold min-lg:mr-1 min-lg:text-[22px] min-lg:leading-[24px]">{{
-              `$${course.price}`
-            }}</span>
-            <del class="text-sm leading-[17px] text-gray-500 min-lg:leading-[18px]">{{ `$${course.fixed_price}` }}</del>
+            <span class="mr-[5px] text-sm leading-[17px] text-blueGray-4 font-bold min-lg:mr-1 min-lg:text-[22px] min-lg:leading-[24px]">
+              {{ `$${course.price}` | separator }}
+            </span>
+            <del class="text-sm leading-[17px] text-gray-500 min-lg:leading-[18px]">{{ `$${course.fixed_price}` | separator }}</del>
           </div>
         </div>
       </div>

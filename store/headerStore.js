@@ -5,10 +5,14 @@ const store = {
       isOpenHam: false,
       isOpenMobileCourse: false,
       isOpenProfile: false,
+      isCartOpen: true,
     };
   },
   getters: {},
   mutations: {
+    handleChangeIsCartOpen(state, { value }) {
+      state.isCartOpen = value;
+    },
     handleChangeIsOpenProfile(state, { value }) {
       state.isOpenProfile = value;
     },

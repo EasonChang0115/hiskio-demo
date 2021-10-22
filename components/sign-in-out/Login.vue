@@ -106,6 +106,7 @@ export default {
           password: this.password,
         },
       });
+      await this.$store.dispatch('cartStore/initCart');
       this.$store.commit('signInOutStore/handleChangeIsOpenSignInOut', { value: false });
       this.$nuxt.$loading.finish();
       this.$router.push('/');

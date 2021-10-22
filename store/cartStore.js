@@ -15,14 +15,14 @@ const store = {
   mutations: {
     handeAddCartItem(state, { courses }) {
       courses.forEach((course) => {
-        if (!state.cart.filter((item) => Number(item.id) === course.id).length) {
+        if (!state.cart.filter((item) => Number(item.id) === Number(course.id)).length) {
           state.cart = [...state.cart, course];
         }
       });
       setCartIDtoLoclStorage(state);
     },
     handeDeleteCartItem(state, { id }) {
-      state.cart = [...state.cart.filter((item) => Number(item.id) !== id)];
+      state.cart = [...state.cart.filter((item) => Number(item.id) !== Number(id))];
       setCartIDtoLoclStorage(state);
     },
   },
@@ -82,7 +82,7 @@ const store = {
             },
           });
         }
-        commit('handeDeleteCartItem', { id });
+        commit('handeDeleteCartItem', { id: Number(id) });
       } catch (error) {
         console.log(error);
       }

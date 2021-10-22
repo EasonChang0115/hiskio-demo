@@ -20,10 +20,7 @@ export default {
   css: [{ src: '@/scss/index.scss', lang: 'scss' }],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~/plugins/axios', mode: 'client' },
-    { src: '~/plugins/swiper.js', mode: 'client' },
-  ],
+  plugins: [{ src: '~/plugins/axios', mode: 'client' }, { src: '~/plugins/swiper.js', mode: 'client' }, { src: '~/plugins/separator.js' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
@@ -59,6 +56,7 @@ export default {
     [
       'nuxt-lazy-load',
       {
+        images: false,
         defaultImage: 'https://via.placeholder.com/500',
       },
     ],
