@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     deleteClick() {
-      this.$emit('delete', { id: this.course.id });
+      this.$emit('deleteClick', { id: this.course.id });
     },
   },
 };

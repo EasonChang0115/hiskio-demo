@@ -66,4 +66,8 @@ export default {
   build: {
     extractCSS: true,
   },
+
+  storybook: {
+    // Options
+  },
 };

@@ -22,7 +22,7 @@
       </svg>
     </button>
     <ul>
-      <cart-item-card v-for="course in cart" :key="course.id" :course="course" @delete="handleDeleteClick"></cart-item-card>
+      <cart-item-card v-for="course in cart" :key="course.id" :course="course" @deleteClick="handleDeleteClick"></cart-item-card>
     </ul>
     <div class="flex justify-end items-center py-2 px-2">
       <span class="text-base">加總：</span>
