@@ -8,12 +8,21 @@ export default function ({ app, $axios, redirect, store, cookies, error }) {
     }
   });
   $axios.onResponse((res) => {
-    return new Promise((resolve, reject) => {
-      if (res.status === 200) {
-        resolve(res.data);
-      } else {
-        reject(res.data.message);
-      }
-    });
+    if (res.status === 200) {
+      return res.data;
+    }
+  });
+  $axios.onError((error) => {
+    switch (error.response.status) {
+      case 403:
+      case 404:
+        error({ statusCode: 404, message: '找不到頁面' });
+        break;
+      case 500:
+        error({ statusCode: 500, message: '服務器出現錯誤，請稍後再試' });
+        break;
+      default:
+        break;
+    }
   });
 }

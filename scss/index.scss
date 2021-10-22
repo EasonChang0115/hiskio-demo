@@ -77,6 +77,13 @@
     color: rgba(140, 140, 140, var(--tw-text-opacity));
     outline: 2px solid transparent;
     outline-offset: 2px;
+    &.error {
+      border-width: 1px;
+      --tw-border-opacity: 1;
+      border-color: rgba(226, 82, 82, var(--tw-border-opacity));
+      --tw-text-opacity: 1;
+      color: rgba(226, 82, 82, var(--tw-text-opacity));
+    }
   }
   .default-btn,
   .default-solid-btn {

@@ -16,7 +16,7 @@
       <div class="mx-auto overflow-hidden w-[320px]">
         <ul>
           <li class="relative">
-            <input v-model="account" type="email" placeholder="請輸入 HiSKIO ID" class="input-text" />
+            <input v-model="account" type="email" placeholder="請輸入 HiSKIO ID" class="input-text" :class="{ error: !!errorMessage }" />
             <svg
               aria-hidden="true"
               focusable="false"
@@ -33,7 +33,7 @@
               ></path>
             </svg>
           </li>
-          <p class="text-xs text-red-4"></p>
+          <p class="text-xs text-red-4">{{ errorMessage }}</p>
           <li class="relative mt-[8px]">
             <input v-model="password" type="password" placeholder="請輸入登入密碼" class="input-text" />
             <svg
@@ -89,27 +89,38 @@
 
 <script>
 import { loginMethods } from './data';
+import { capitalize } from '@/utils/utils.js';
 export default {
   data() {
     return {
       loginMethods,
       account: 's8710606@yahoo.com.tw',
       password: 'zltntq610856',
+      errorMessage: '',
     };
   },
   methods: {
     async handleLogin() {
       this.$nuxt.$loading.start();
-      await this.$store.dispatch('userStore/login', {
-        data: {
-          account: this.account,
-          password: this.password,
-        },
-      });
-      await this.$store.dispatch('cartStore/initCart');
-      this.$store.commit('signInOutStore/handleChangeIsOpenSignInOut', { value: false });
-      this.$nuxt.$loading.finish();
-      this.$router.push('/');
+      try {
+        await this.$store.dispatch('userStore/login', {
+          data: {
+            account: this.account,
+            password: this.password,
+          },
+        });
+        const data = await this.$store.dispatch('userStore/me', {
+          Authorization: `${capitalize(this.$cookies.get('tokenType'))} ${this.$cookies.get('accessToken')}`,
+        });
+        this.$store.commit('userStore/setUserData', { ...data });
+        await this.$store.dispatch('cartStore/initCart');
+        this.$store.commit('signInOutStore/handleChangeIsOpenSignInOut', { value: false });
+        this.$nuxt.$loading.finish();
+        this.$router.push('/');
+      } catch (error) {
+        this.errorMessage = error;
+        this.$nuxt.$loading.finish();
+      }
     },
   },
 };
