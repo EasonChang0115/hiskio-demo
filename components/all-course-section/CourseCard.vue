@@ -143,19 +143,10 @@ export default {
     fundraisingPercent() {
       return Math.floor((this.course.consumers / this.course.fundraising_tickets) * 100) + '%';
     },
-    isInCart() {
-      return this.$store.state.cartStore.cart.filter((item) => Number(item.id) === this.course.id).length > 0;
-    },
   },
   methods: {
-    async handleChangeCartClick() {
-      this.$nuxt.$loading.start();
-      if (this.isInCart) {
-        await this.$store.dispatch('cartStore/deleteCart', { id: this.course.id });
-      } else {
-        this.$store.dispatch('cartStore/addCart', { id: this.course.id });
-      }
-      this.$nuxt.$loading.finish();
+    handleChangeCartClick() {
+      this.$emit('cartClick', { id: this.course.id });
     },
   },
 };

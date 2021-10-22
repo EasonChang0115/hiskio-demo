@@ -7,7 +7,7 @@
           <nuxt-link to="/groups/all?status=PRESALE" class="text-gray-600 sn-500:pr-[8px] sn-500:text-[14px]">更多募資課程</nuxt-link>
         </div>
         <ul class="grid grid-cols-1 gap-4 min-md:grid-cols-2 min-lg:grid-cols-4">
-          <course-card v-for="course in fundraisingCourse" :key="course.id" :course="course"></course-card>
+          <course-card v-for="course in fundraisingCourse" :key="course.id" :course="course" @cartClick="handleCartClick"></course-card>
         </ul>
       </div>
     </div>
@@ -27,6 +27,20 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch('coursesStore/getFundraisingCourse');
+  },
+  methods: {
+    isInCart(id) {
+      return this.$store.state.cartStore.cart.filter((item) => Number(item.id) === id).length > 0;
+    },
+    async handleCartClick({ id }) {
+      this.$nuxt.$loading.start();
+      if (this.isInCart(id)) {
+        await this.$store.dispatch('cartStore/deleteCart', { id });
+      } else {
+        this.$store.dispatch('cartStore/addCart', { id });
+      }
+      this.$nuxt.$loading.finish();
+    },
   },
 };
 </script>
