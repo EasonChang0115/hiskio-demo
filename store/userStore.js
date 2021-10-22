@@ -40,6 +40,7 @@ const store = {
         this.$cookies.set('tokenType', res.token_type);
         const userData = await dispatch('me', { Authorization: `${capitalize(this.$cookies.get('tokenType'))} ${this.$cookies.get('accessToken')}` });
         commit('setUserData', { ...userData });
+        await dispatch('cartStore/initCart');
       } catch (error) {
         console.log(error);
       }

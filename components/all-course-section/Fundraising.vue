@@ -22,7 +22,6 @@ export default {
   },
   computed: {
     fundraisingCourse() {
-      console.log(this.$store.state.coursesStore.fundraisingCourse);
       return this.$store.state.coursesStore.fundraisingCourse;
     },
   },

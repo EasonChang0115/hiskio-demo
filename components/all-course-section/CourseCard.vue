@@ -49,7 +49,7 @@
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
               class="text-white hover:text-yellow-3 svg-inline--fa fa-shopping-cart w-[1.125em]"
-              @click.prevent="addToCart"
+              @click.prevent="handleChangeCartClick"
             >
               <path
                 fill="currentColor"
@@ -132,7 +132,6 @@ export default {
       let nextPriceStartAt = null;
       this.course.prices.forEach((item, index, array) => {
         if (item.price === this.course.price && array[index + 1].fundraising) {
-          console.log(array[index + 1]);
           nextPriceStartAt = array[index + 1].schedule_at;
         }
       });
@@ -144,10 +143,19 @@ export default {
     fundraisingPercent() {
       return Math.floor((this.course.consumers / this.course.fundraising_tickets) * 100) + '%';
     },
+    isInCart() {
+      return this.$store.state.cartStore.cart.filter((item) => Number(item.id) === this.course.id).length > 0;
+    },
   },
   methods: {
-    addToCart() {
-      console.log(this.course);
+    async handleChangeCartClick() {
+      this.$nuxt.$loading.start();
+      if (this.isInCart) {
+        await this.$store.dispatch('cartStore/deleteCart', { id: this.course.id });
+      } else {
+        this.$store.dispatch('cartStore/addCart', { id: this.course.id });
+      }
+      this.$nuxt.$loading.finish();
     },
   },
 };

@@ -31,6 +31,7 @@ export default {
       this.$nuxt.$loading.start();
       setTimeout(() => this.$nuxt.$loading.finish(), 500);
     });
+    this.$store.dispatch('cartStore/initCart');
   },
 };
 </script>
