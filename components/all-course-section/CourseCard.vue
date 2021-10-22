@@ -18,9 +18,7 @@
             min-lg:mr-0 min-lg:w-full min-lg:h-[152px] min-lg:rounded-t-[10px] min-lg:rounded-b-none
           "
           style="background-size: cover"
-          :style="{
-            backgroundImage: `url(${course.image})`,
-          }"
+          :lazy-background="course.image"
         >
           <div
             class="absolute inset-x-0 bottom-0 flex items-end justify-end p-2 leading-none course-card-cover h-1/2 text-[22px]"
@@ -51,6 +49,7 @@
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
               class="text-white hover:text-yellow-3 svg-inline--fa fa-shopping-cart w-[1.125em]"
+              @click.prevent="addToCart"
             >
               <path
                 fill="currentColor"
@@ -76,13 +75,14 @@
             {{ course.title }}
           </h3>
           <div class="hidden justify-between items-center flex-wrap mb-[7.5px] min-lg:flex min-lg:mb-[10px] min-lg:w-full min-lg:order-2">
-            <p class="hidden text-sm leading-[19px] text-gray-700 min-lg:block min-lg:mb-[6px]">剩 8 天</p>
-            <p class="text-sm leading-[19px] text-gray-700 min-lg:mb-[6px]">已募資 330%</p>
+            <p class="hidden text-sm leading-[19px] text-gray-700 min-lg:block min-lg:mb-[6px]">剩 {{ remainingDays }} 天</p>
+            <p class="text-sm leading-[19px] text-gray-700 min-lg:mb-[6px]">已募資 {{ fundraisingPercent }}</p>
             <!---->
             <div class="relative w-[39.54%] h-[6px] bg-hi-input-gray rounded-md overflow-hidden min-lg:w-full min-lg:h-[10px]">
               <div
                 class="absolute inset-y-0 left-0 rounded-md"
-                style="background: linear-gradient(90deg, rgb(235, 103, 103) 0%, rgb(227, 74, 74) 100%); width: 330%"
+                style="background: linear-gradient(90deg, rgb(235, 103, 103) 0%, rgb(227, 74, 74) 100%)"
+                :style="{ width: fundraisingPercent }"
               ></div>
             </div>
           </div>
@@ -90,16 +90,14 @@
             <div
               class="flex-shrink-0 hidden bg-center rounded-full mr-[5px] w-[23px] h-[23px] min-lg:block min-lg:mr-[10px] min-lg:w-[37px] min-lg:h-[37px]"
               style="background-size: cover"
-              :style="{
-                backgroundImage: `url(${course.lecturers[0].avatar})`,
-              }"
+              :lazy-background="course.lecturers[0].avatar"
             ></div>
             <p class="text-xs leading-[14px] text-gray-600 min-lg:text-base min-lg:leading-[27.64px]">{{ course.lecturers[0].username }}</p>
-            <p class="font-bold leading-none min-lg:hidden text-red-1">{{ `$${nowPrice.price}` }}</p>
+            <p class="font-bold leading-none min-lg:hidden text-red-1">{{ `$${course.price}` }}</p>
           </div>
           <div class="items-center hidden min-lg:flex min-lg:items-end min-lg:order-3">
             <span class="mr-[5px] text-sm leading-[17px] text-blueGray-4 font-bold min-lg:mr-1 min-lg:text-[22px] min-lg:leading-[24px]">{{
-              `$${nowPrice.price}`
+              `$${course.price}`
             }}</span>
             <del class="text-sm leading-[17px] text-gray-500 min-lg:leading-[18px]">{{ `$${course.fixed_price}` }}</del>
           </div>
@@ -107,11 +105,11 @@
       </div>
       <div class="flex min-lg:hidden">
         <div class="flex items-center justify-center flex-shrink-0 mr-4 w-[100px]">
-          <p class="text-sm leading-none text-gray-700">已募資 330%</p>
+          <p class="text-sm leading-none text-gray-700">已募資 {{ fundraisingPercent }}</p>
         </div>
         <div class="flex items-center justify-center flex-grow">
           <div class="relative flex-grow overflow-hidden rounded-md h-[6px] bg-hi-input-gray">
-            <div class="absolute inset-y-0 left-0 rounded-md bg-red-1" style="width: 330%"></div>
+            <div class="absolute inset-y-0 left-0 rounded-md bg-red-1" :style="{ width: fundraisingPercent }"></div>
           </div>
         </div>
       </div>
@@ -130,8 +128,26 @@ export default {
     },
   },
   computed: {
-    nowPrice() {
-      return this.course.prices.find((price) => price.fundraising);
+    remainingDays() {
+      let nextPriceStartAt = null;
+      this.course.prices.forEach((item, index, array) => {
+        if (item.price === this.course.price && array[index + 1].fundraising) {
+          console.log(array[index + 1]);
+          nextPriceStartAt = array[index + 1].schedule_at;
+        }
+      });
+      const UTCTimeObj = new Date(nextPriceStartAt);
+      const nowDate = new Date();
+      const difference = UTCTimeObj.getTime() - nowDate.getTime();
+      return Math.ceil(difference / (1000 * 3600 * 24));
+    },
+    fundraisingPercent() {
+      return Math.floor((this.course.consumers / this.course.fundraising_tickets) * 100) + '%';
+    },
+  },
+  methods: {
+    addToCart() {
+      console.log(this.course);
     },
   },
 };

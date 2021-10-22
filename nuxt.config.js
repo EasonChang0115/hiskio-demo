@@ -52,7 +52,17 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['cookie-universal-nuxt', '@nuxtjs/axios', '@nuxtjs/proxy'],
+  modules: [
+    'cookie-universal-nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    [
+      'nuxt-lazy-load',
+      {
+        defaultImage: 'https://via.placeholder.com/500',
+      },
+    ],
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
