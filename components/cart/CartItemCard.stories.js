@@ -83,7 +83,7 @@ const courseData = {
   total: 2190,
 };
 export default {
-  title: 'CartItemCard',
+  title: '購物車卡片',
   component: CartItemCard,
   excludeStories: /.*Data$/,
 };
