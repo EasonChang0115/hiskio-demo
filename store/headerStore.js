@@ -5,7 +5,7 @@ const store = {
       isOpenHam: false,
       isOpenMobileCourse: false,
       isOpenProfile: false,
-      isCartOpen: true,
+      isCartOpen: false,
     };
   },
   getters: {},
