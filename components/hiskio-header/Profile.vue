@@ -31,7 +31,10 @@
           class="relative block text-lg leading-none w-40px h-40px text-green-1"
           @click="$store.commit('headerStore/handleChangeIsCartOpen', { value: true })"
         >
-          <span class="absolute top-[10px] right-[10px] rounded-full w-[6px] h-[6px] bg-red-5 z-2"></span>
+          <span
+            class="absolute top-[10px] right-[10px] rounded-full w-[6px] h-[6px] z-2"
+            :class="$store.getters['cartStore/hasItems'] ? 'bg-red-5' : ''"
+          ></span>
           <svg
             aria-hidden="true"
             focusable="false"

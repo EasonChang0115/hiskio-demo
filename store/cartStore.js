@@ -11,7 +11,11 @@ const store = {
       cart: [],
     };
   },
-  getters: {},
+  getters: {
+    hasItems(state) {
+      return state.cart.length > 0;
+    },
+  },
   mutations: {
     handeAddCartItem(state, { courses }) {
       courses.forEach((course) => {
