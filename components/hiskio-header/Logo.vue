@@ -45,10 +45,5 @@ export default {
     Search,
   },
   mixins: [headerMixin],
-  data() {
-    return {
-      isVisible: false,
-    };
-  },
 };
 </script>

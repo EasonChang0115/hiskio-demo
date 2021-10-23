@@ -7,8 +7,8 @@
         </nuxt-link>
       </li>
       <li class="hidden text-gray-700 header-btn min-lg:block">
-        <nuxt-link to="/teach" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] hover:text-green-3" aria-current="page"
-          >我想開課
+        <nuxt-link to="/teach" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-[8px] hover:text-green-3" aria-current="page">
+          我想開課
         </nuxt-link>
       </li>
       <li v-if="username" class="relative hidden text-gray-700 header-btn min-lg:block">

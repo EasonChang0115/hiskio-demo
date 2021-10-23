@@ -57,8 +57,8 @@
         </ul>
       </div>
       <div class="flex items-center mx-auto policy w-[320px] mt-[20px]">
-        <a href="javascript:void(0)" class="flex items-center justify-center float-left text-white w-[18px] h-[18px] bg-green-2 rounded-[2px] mr-[4px]"
-          ><svg
+        <a href="javascript:void(0)" class="flex items-center justify-center float-left text-white w-[18px] h-[18px] bg-green-2 rounded-[2px] mr-[4px]">
+          <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="fas"
@@ -72,11 +72,12 @@
               fill="currentColor"
               d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
               class=""
-            ></path></svg
-        ></a>
+            ></path>
+          </svg>
+        </a>
         <div>
           <p class="text-sm text-gray-500">
-            登入註冊即代表您同意<a href="https://hiskio.com/user-policy" target="_blank" rel="noopener noreferrer" class="underline cursor-pointer">使用者</a
+            登入註冊即代表您同意<a href="https://hiskio.com/user-policy" target="_blank" rel="noopener noreferrer" class="underline cursor-pointer">使用者 </a
             >及<a href="https://hiskio.com/privacy-policy" target="_blank" rel="noopener noreferrer" class="underline cursor-pointer">隱私權政策</a>
           </p>
         </div>
