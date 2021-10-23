@@ -4,7 +4,7 @@
     :class="isCartOpen ? '' : '-translate-y-full'"
   >
     <h4 class="py-2 text-center text-gray-700">購物車</h4>
-    <button data-v-427b1198="" class="absolute top-[51px] right-[9px] w-40px h-40px text-xl leading-none" @click="isCartOpen = false">
+    <button class="absolute top-[51px] right-[9px] w-40px h-40px text-xl leading-none" @click="isCartOpen = false">
       <svg
         aria-hidden="true"
         focusable="false"
