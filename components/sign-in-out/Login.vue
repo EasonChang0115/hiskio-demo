@@ -95,8 +95,8 @@ export default {
   data() {
     return {
       loginMethods,
-      account: 's8710606@yahoo.com.tw',
-      password: 'zltntq610856',
+      account: '',
+      password: '',
       errorMessage: '',
     };
   },
